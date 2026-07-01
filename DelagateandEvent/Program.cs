@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+
 // Delegate
 delegate void Notification(string message);
 
@@ -24,9 +26,9 @@ public class Box<T>
     }
 }
 
-class MyClass
+class Program
 {
-    public static void Main()
+    static void Main(string[] args)
     {
         // Delegate and Event
         Console.WriteLine("==== Delegate and Event ====");
@@ -47,7 +49,7 @@ class MyClass
         Console.WriteLine("\n==== Generic List ====");
         List<string> students = new List<string>();
 
-        students.Add("Sumit");
+        students.Add("Saurav Basnet");
         students.Add("Bob");
         students.Add("John");
 
@@ -61,7 +63,7 @@ class MyClass
         ArrayList arrayList = new ArrayList();
 
         arrayList.Add(100);
-        arrayList.Add("Sumit");
+        arrayList.Add("Saurav Basnet");
         arrayList.Add(99.5);
         arrayList.Add(true);
 
@@ -74,7 +76,7 @@ class MyClass
         Console.WriteLine("\n==== Dictionary ====");
         Dictionary<int, string> dictionary = new Dictionary<int, string>();
 
-        dictionary.Add(1, "Sumit");
+        dictionary.Add(1, "Saurav Basnet");
         dictionary.Add(2, "Bob");
         dictionary.Add(3, "John");
 
@@ -100,7 +102,7 @@ class MyClass
         }
     }
 
-    public static void ReceiveMessage(string message)
+    static void ReceiveMessage(string message)
     {
         Console.WriteLine($"Subscriber Message: {message}");
     }
