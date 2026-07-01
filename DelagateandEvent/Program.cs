@@ -52,6 +52,19 @@ class MyClass
 
         Box<string> stringBox = new Box<string> { Value = "Kushal" };
         stringBox.Display();
+
+
+        Console.WriteLine("=======List of Generic======");
+        List<string> students = new List<string>();
+        students.Add("Kushal");
+        students.Add("Pahadi");
+        students.Add("Hello");
+
+
+        foreach (var student in students)
+        {
+            Console.WriteLine($"Student: {student}");
+        }
     }
 
     public static void RecieveMessage(string message) {
