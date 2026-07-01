@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\dell\source\repos\DelagateandEvent\DelagateandEvent\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\dell\source\repos\DelagateandEvent\DelagateandEvent\.editorconfig" />
+  </ItemGroup>
+
 </Project>
