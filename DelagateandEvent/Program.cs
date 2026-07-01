@@ -12,7 +12,7 @@ public class Publisher
     }
 }
 
-// Generic
+// Generic Class
 public class Box<T>
 {
     public T? Value { get; set; }
@@ -40,12 +40,18 @@ class Program
     {
         Console.WriteLine($"Subscriber Message: {message}");
 
-        Console.WriteLine("===== Generic =====");
+        // Generic Integer
+        Console.WriteLine("\n===== Integer Generic =====");
 
-        Box<int> intBox = new Box<int> { Value = 42 };
+        Box<int> intBox = new Box<int>
+        {
+            Value = 42
+        };
+
         intBox.Display();
 
-        Console.WriteLine("===== String Generic =====");
+        // Generic String
+        Console.WriteLine("\n===== String Generic =====");
 
         Box<string> stringBox = new Box<string>
         {
@@ -54,7 +60,8 @@ class Program
 
         stringBox.Display();
 
-        Console.WriteLine("===== List of Generic =====");
+        // Generic List
+        Console.WriteLine("\n===== List Generic =====");
 
         List<string> students = new List<string>();
 
@@ -65,6 +72,20 @@ class Program
         foreach (var student in students)
         {
             Console.WriteLine($"Student: {student}");
+        }
+
+        // Dictionary (Key-Value Pair)
+        Console.WriteLine("\n===== Dictionary Key-Value =====");
+
+        Dictionary<int, string> studentData = new Dictionary<int, string>();
+
+        studentData.Add(1, "Alice");
+        studentData.Add(2, "Bob");
+        studentData.Add(3, "Charlie");
+
+        foreach (var item in studentData)
+        {
+            Console.WriteLine($"ID: {item.Key}, Name: {item.Value}");
         }
     }
 }
