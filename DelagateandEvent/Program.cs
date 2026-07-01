@@ -96,4 +96,3 @@ class Program
     {
         Console.WriteLine($"Subscriber received message: {message}");
     }
-}
