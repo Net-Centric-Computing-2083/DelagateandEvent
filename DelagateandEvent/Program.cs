@@ -48,7 +48,7 @@ class MyClass
 
         foreach (var student in students)
         {
-            Console.WriteLine($"Student:{students});
+            Console.WriteLine($"Student:{students}");
         }
     }
     public static void ReceiveMessage(string message)
