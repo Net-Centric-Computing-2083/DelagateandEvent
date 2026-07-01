@@ -1,7 +1,7 @@
-﻿Console.WriteLine("Delegate and Events and Generic");
-Console.WriteLine("Kushal80010932");
+﻿
 //delegate 
 delegate void Notification(string message);
+
 
 
 //event
@@ -29,13 +29,14 @@ public class Box<T>{
 
 
 
-class MyClass
+class Program
 {
 
     public static void Main()
     {
         Console.WriteLine("========DELEGATE AND EVENTS=======");
         Publisher publisher = new Publisher();
+
         publisher.MessageSent += RecieveMessage;
         publisher.Send("Hello, Kushal! The event has been fired.");
 
