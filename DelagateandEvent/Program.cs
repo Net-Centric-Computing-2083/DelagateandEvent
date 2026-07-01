@@ -48,6 +48,20 @@ public class Program
             Console.WriteLine(student);
         }
 
+        Console.WriteLine("Dictonary of Generic:");
+        Dictionary<string, int> marks = new Dictionary<string, int>();
+        marks["Bigyan"] = 90;
+        marks["Ram"] = 75;
+
+        Console.WriteLine(marks["Bigyan"]);
+
+        Console.WriteLine("Stack of Generic:");
+        Stack<string> history = new Stack<string>();
+        history.Push("Page 1");
+        history.Push("Page 2");
+
+        Console.WriteLine(history.Pop());
+
 
     }
     public static void RecieverMessage(string message)
