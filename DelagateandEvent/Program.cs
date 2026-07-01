@@ -1,4 +1,5 @@
 ﻿//delegate
+using System.Collections;
 using System.Security.Cryptography;
 
 delegate void Notification(string message);
@@ -53,6 +54,47 @@ class Program
         {
             Console.WriteLine($"Student: {student}");
         }
+
+        Console.WriteLine("=====ArrayList of Non-Generics=====");
+        ArrayList arrayList = new ArrayList();
+        arrayList.Add(1);
+        arrayList.Add("Aadarsha");
+        arrayList.Add(3.33);
+        foreach (var array in arrayList)
+        {
+            Console.WriteLine($"ArrayList item: {array}");
+        }
+
+        Console.WriteLine("=====Dictionary of Generics=====");
+        Dictionary<int,string> footballers = new Dictionary<int,string>();
+        footballers.Add(1, "Cristiano Ronaldo");
+        footballers.Add(2, "Lionel Messi");
+        footballers.Add(3, "Kylian Mbappe");
+        foreach (var footballer in footballers)
+        {
+            Console.WriteLine($"Footballer ID: {footballer.Key}, Name: {footballer.Value}");
+        }
+
+        Console.WriteLine("=====Stack of Non-Generics=====");
+        Stack nstack = new Stack();
+        nstack.Push("Aadarsha");
+        nstack.Push(2);
+        nstack.Push(33.67);
+        foreach(var item in nstack)
+        {
+            Console.WriteLine($"Stack item: {item}");
+        }
+
+        Console.WriteLine("=====Stack of Generics=====");
+        Stack<string> gstack = new Stack<string>();
+        gstack.Push("Aadarsha");
+        gstack.Push("Bikram");
+        gstack.Push("Khadka");
+        foreach(var item in gstack)
+        {
+            Console.WriteLine($"Stack item: {item}");
+        }
+
     }
     public static void ReceiveMessage(string message)
     {
