@@ -1,21 +1,43 @@
-﻿using System;
-class Animal
+﻿//delegate
+delegate void Notification(string message);
+//Event
+class Publisher
 {
-    public string Name { get; set; }
-    public Animal(string name)
+    public event Notification? MessageSent;
+    public void Send(string message)
     {
-        Name = name;
+        MessageSent?.Invoke(message);
     }
-    public void Speak()
+}
+//Generic
+public class Box<T>
+{
+    public T Value { get; set; }
+    public void Display()
     {
-        Console.WriteLine($"{Name} makes a sound.");
+        Console.WriteLine($"Value: {Value}");
     }
 }
 class Program
 {
-    static void Main(string[] args)
+    public static void Main()
     {
-        Animal dog = new Animal("Dog");
-        dog.Speak();
+        Console.WriteLine("Delegate, Event, and Generic Example");
+        Publisher publisher = new Publisher();
+        publisher.MessageSent += ReceiveMessage;
+        publisher.Send("Hello, World!");
+
+        Console.WriteLine("Generic Example");
+        Console.WriteLine("List of int");
+        Box<int> intBox = new Box<int> { Value = 42 };
+        intBox.Display();
+
+        Console.WriteLine("List of strings");
+        Box<string> stringBox = new Box<string> { Value = "Hello, Generic!" };
+        stringBox.Display();
+    }
+    public static void ReceiveMessage(string message)
+    {
+        Console.WriteLine($"Subscriber message: {message}");
     }
 }
