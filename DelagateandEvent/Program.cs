@@ -1,3 +1,69 @@
-﻿Console.WriteLine("Hello, World!");
-Console.WriteLine("This is a testing");
-Console.WriteLine("Delegate");
+﻿//delegate
+
+delegate void Notification(string message);
+
+//Event
+class Publisher
+{
+    public event Notification? MessageSent;
+    
+      public void Send(string message)
+    {
+        MessageSent?.Invoke(message);
+    }
+
+    }
+
+//Generic
+
+public class Box<T>
+    {
+    public T Value { get; set; }
+
+
+    public void display()
+    {
+        Console.WriteLine($"Value: {Value}");
+    }
+
+    }
+
+class Program
+{
+    public static void Main()
+    {
+        Console.WriteLine("=====Delegate and Event=====");
+        Publisher  publisher = new Publisher();
+
+        publisher.MessageSent += RecieveMessage;
+
+        publisher.Send("Hello World!");
+        
+        Console.WriteLine("====Generic====");
+        Console.WriteLine("====list of int====");
+        Box<int> intBox = new Box<int> { Value = 42 };
+        intBox.display();
+
+        Console.WriteLine("====list of string====");
+        Box<string> stringBox = new Box<string> { Value = "Hello world !"};
+        stringBox.display();
+
+        Console.WriteLine("====list of Generic====");
+        List<string> students = new List<string>();
+        students.Add("John");
+        students.Add("Bob");
+        students.Add("Alice");
+
+        foreach (var student in students)
+        {
+            Console.WriteLine(student);
+        }
+ 
+    }
+
+    public static void RecieveMessage(string message)
+    {
+        Console.WriteLine($"Subscriber mesaage : {message}");
+    }
+}
+
