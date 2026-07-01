@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections;
 // Delegate
 delegate void Notification(string message);
 
@@ -16,7 +16,7 @@ class Publisher
 // Generic Class
 public class Box<T>
 {
-    public T Value { get; set; }
+    public T Value { get; set; } = default!;
 
     public void Display()
     {
