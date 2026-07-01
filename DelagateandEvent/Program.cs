@@ -45,9 +45,9 @@ class Program
 
         Console.WriteLine("\n==== Generic List ====");
         List<string> students = new List<string>();
-        students.Add("Alice");
-        students.Add("Bob");
-        students.Add("Charlie");
+        students.Add("sujita");
+        students.Add("preshu");
+        students.Add("prashansha");
 
         foreach (var student in students)
         {
