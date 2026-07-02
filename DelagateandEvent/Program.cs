@@ -100,10 +100,17 @@ class Program
         {
             Console.WriteLine(stack.Pop());
         }
+
+        Console.WriteLine("Work");
+
+        Console.WriteLine("Work");
     }
 
     static void ReceiveMessage(string message)
     {
         Console.WriteLine($"Subscriber Message: {message}");
     }
+
+    
+
 }
