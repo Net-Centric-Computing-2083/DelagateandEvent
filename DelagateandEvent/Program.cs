@@ -1,160 +1,112 @@
-﻿//delegate 
+﻿using System;
 using System.Collections;
 
+// Delegate
 delegate void Notification(string message);
 
-
-
-//event
+// Event
 class Publisher
 {
     public event Notification? MessageSent;
-
 
     public void Send(string message)
     {
         MessageSent?.Invoke(message);
     }
-
 }
 
-//Generic class
-
+// Generic Class
 public class Box<T>
 {
-    public T Value { get; set; }
+    public T Value { get; set; } = default!;
+
     public void Display()
     {
-        Console.WriteLine($"Value : {Value} ");
+        Console.WriteLine($"Value: {Value}");
     }
 }
-
-
 
 class Program
 {
-
-    public static void Main()
+    static void Main(string[] args)
     {
-        Console.WriteLine("========DELEGATE AND EVENTS=======");
+        // Delegate and Event
+        Console.WriteLine("==== Delegate and Event ====");
         Publisher publisher = new Publisher();
 
-        publisher.MessageSent += RecieveMessage;
-        publisher.Send("Hello, Rojesh! The event has been fired.");
+        publisher.MessageSent += ReceiveMessage;
+        publisher.Send("Hello, World!");
 
-
-        //generic class
-        Console.WriteLine("==========Generic Class========");
-        Console.WriteLine("==========Box of Integer ========");
-
+        // Generic Class
+        Console.WriteLine("\n==== Generic Class ====");
         Box<int> intBox = new Box<int> { Value = 42 };
         intBox.Display();
 
-
-        Console.WriteLine("==========Box of String========");
-
-        Box<string> stringBox = new Box<string> { Value = "Rojesh" };
+        Box<string> stringBox = new Box<string> { Value = "Hello, World!" };
         stringBox.Display();
 
-
-        Console.WriteLine("=======List :: Generic======");
+        // Generic List
+        Console.WriteLine("\n==== Generic List ====");
         List<string> students = new List<string>();
-        students.Add("Kushal");
-        students.Add("Pahadi");
-        students.Add("Hello");
 
+        students.Add("Saurav Basnet");
+        students.Add("Bob");
+        students.Add("John");
 
-        foreach (var student in students)
+        foreach (string student in students)
         {
-            Console.WriteLine($"Student: {student}");
+            Console.WriteLine(student);
         }
 
+        // ArrayList
+        Console.WriteLine("\n==== ArrayList ====");
+        ArrayList arrayList = new ArrayList();
 
-        ///////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("======ArrayList :: Non Genric======");
-        ArrayList array = new ArrayList();
-        array.Add(1);
-        array.Add("Rojesh");
-        array.Add(7.7);
+        arrayList.Add(100);
+        arrayList.Add("Saurav Basnet");
+        arrayList.Add(99.5);
+        arrayList.Add(true);
 
-
-        for (int i = 0; i < array.Count; i++)
+        foreach (var item in arrayList)
         {
-            Console.WriteLine($"ARRAYLIST[{i}] = {array[i]}");
+            Console.WriteLine(item);
         }
 
+        // Dictionary
+        Console.WriteLine("\n==== Dictionary ====");
+        Dictionary<int, string> dictionary = new Dictionary<int, string>();
 
-        ///////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("======HashTable :: Non Genric======");
-        Hashtable ht = new Hashtable();
-        ht.Add(7, "Rojesh");
-        ht.Add("RollNumber", 80010941);
+        dictionary.Add(1, "Saurav Basnet");
+        dictionary.Add(2, "Bob");
+        dictionary.Add(3, "John");
 
-        Console.WriteLine(ht[7]);
-        Console.WriteLine(ht["RollNumber"]);
-
-
-
-        ///////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("======Stack: Non-Generic======");
-
-        Stack s = new Stack();
-        s.Push(1);
-        s.Push("Rojesh");
-        s.Push(3.3);
-
-        Console.WriteLine(s.Peek());
-        Console.WriteLine(s.Pop());
-        Console.WriteLine(s.Peek());
-
-
-
-        ///////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("======Queue: Generic======");
-
-        Queue<string> q = new Queue<string>();
-
-        q.Enqueue("Hello");
-        q.Enqueue("Rojesh");
-
-        Console.WriteLine(q.Peek());
-        Console.WriteLine(q.Dequeue());
-        Console.WriteLine(q.Peek());
-
-
-        ///////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("======Dictionary :: Generic======");
-        Dictionary<int, string> d = new Dictionary<int, string>();
-        d.Add(1, "Casillas");
-        d.Add(4, "Ramos");
-        d.Add(7, "Ronaldo");
-
-        Console.WriteLine(d[1]);
-        Console.WriteLine(d[4]);
-        Console.WriteLine(d[7]);
-
-
-
-        ///////////////////////////////////////////////////////////////////////////////////
-        Console.WriteLine("======HashSet :: Generic======");
-        HashSet<string> fruits = new HashSet<string>();
-
-        fruits.Add("Apple");
-        fruits.Add("Banana");
-        fruits.Add("Apple");   // Duplicate (ignored)
-        fruits.Add("Orange");
-
-        foreach (var fruit in fruits)
+        foreach (KeyValuePair<int, string> item in dictionary)
         {
-            Console.WriteLine(fruit);
+            Console.WriteLine($"Roll: {item.Key}, Name: {item.Value}");
+        }
+
+        // Stack
+        Console.WriteLine("\n==== Stack ====");
+        Stack<string> stack = new Stack<string>();
+
+        stack.Push("First");
+        stack.Push("Second");
+        stack.Push("Third");
+
+        Console.WriteLine("Top Element: " + stack.Peek());
+
+        Console.WriteLine("Stack Elements:");
+        while (stack.Count > 0)
+        {
+            Console.WriteLine(stack.Pop());
         }
 
 
     }
 
-    public static void RecieveMessage(string message)
+    static void ReceiveMessage(string message)
     {
-        Console.WriteLine($"Subscriber message: {message}");
+        Console.WriteLine($"Subscriber Message: {message}");
     }
 
 
