@@ -11,6 +11,7 @@ class Publisher
         MessageSent?.Invoke(message);
     }
 }
+
 //Generic
 public class Box<T>
 {
